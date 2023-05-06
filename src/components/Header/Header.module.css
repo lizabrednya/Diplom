@@ -1,0 +1,23 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+  }
+  .header__text {
+    font-family: "Roboto", serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 38px;
+    text-decoration: none;
+    color: #000000;
+  }
+  .header__ml {
+    margin-left: 1em;
+    float: right;
+    text-align: right;
+  }
+  .box{
+    width: 350px;
+  }
+  

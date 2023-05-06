@@ -1,19 +1,20 @@
-import "@fontsource/roboto/300.css";
-import "@fontsource/roboto/400.css";
-import "@fontsource/roboto/500.css";
-import "@fontsource/roboto/700.css";
-import "./index.css";
-
-import React from "react";
+import { StyledComponentProps, StyledEngineProvider } from "@mui/material/styles";
 import ReactDOM from "react-dom/client";
+// import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
+
 import { App } from "./App";
+// import { rootStore } from "./store";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
-
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <StyledEngineProvider injectFirst>
+    {/* <Provider store={rootStore}> */}
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    {/* </Provider> */}
+  </StyledEngineProvider>
 );
