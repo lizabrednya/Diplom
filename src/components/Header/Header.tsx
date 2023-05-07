@@ -2,14 +2,14 @@ import { useCallback } from "react";
 
 import styles from "./Header.module.css"
 import { useLocation, useNavigate } from "react-router-dom";
-import { Button } from "@mui/material";
+import { Box, Button, Grid } from "@mui/material";
 export const Header = () => {
 
   const navigate = useNavigate();
   const { pathname } = useLocation();
 
-  const onLogoutClick = useCallback(() => {
-    navigate(`/`);
+  const onLoginClick = useCallback(() => {
+    navigate(`/login`);
   }, [navigate]);
 
   const onMainClick = useCallback(() => {
@@ -22,6 +22,7 @@ export const Header = () => {
       <div className={styles.header}>
         <Button
             onClick={onMainClick}
+            className={styles.header__main}
         >Главная
         </Button>
         <Button
@@ -41,10 +42,10 @@ export const Header = () => {
         >Иконки
         </Button>
         <Button
-            onClick={onLogoutClick}
-            className={styles.header__ml}
+            onClick={onLoginClick}
+            className={styles.header__login}
         >
-          Выйти
+        Вход
         </Button>
       </div>
     );

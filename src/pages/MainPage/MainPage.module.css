@@ -1,0 +1,16 @@
+.inputs {
+    margin: 2em;
+    margin-left: 0;
+}
+.app {
+    margin-left: 3.6vw;
+    margin-right: 3.6vw;
+}
+.selects {
+    width: 15em;
+    margin: 2em;
+    margin-left: 0;
+}
+.chips {
+    width: 20em;
+}

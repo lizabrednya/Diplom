@@ -1,0 +1,11 @@
+.centered {
+    justify-content: center;
+    align-items: center;
+    width: 26em;
+    margin: auto;
+}
+
+.block {
+    display: block;
+    margin: 2em;
+}
