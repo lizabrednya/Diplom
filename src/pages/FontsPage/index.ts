@@ -1,0 +1,1 @@
+export { FontsPage } from "./FontsPage"

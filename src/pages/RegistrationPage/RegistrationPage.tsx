@@ -14,7 +14,7 @@ export const RegistrationPage = () => {
     const { pathname } = useLocation();
 
     const onBackClick = useCallback(() => {
-        navigate(`/main`);
+        navigate(`/`);
       }, [navigate]);
 
   

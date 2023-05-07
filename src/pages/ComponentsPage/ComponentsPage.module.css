@@ -1,0 +1,32 @@
+.app {
+    margin-left: 3.6vw;
+    margin-right: 3.6vw;
+}
+
+.text {
+    width: 34vw;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23px;
+    margin-top: 2em;
+}
+.flex {
+    display: flex;
+}
+.card {
+    width: 13em;
+    margin: 2em 2em 2em 0;
+    border-radius: 0;
+    box-shadow: none;
+    border: 1px solid black;
+}
+.cardColor {
+    height: 15em;
+    background-color: #D9D9D9;
+}
+.cardIcon {
+    margin-left: auto;
+    margin-top: -1em;
+    color: black;
+}

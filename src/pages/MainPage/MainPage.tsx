@@ -12,6 +12,8 @@ import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import { MuiChipsInput } from 'mui-chips-input'
 
+import { useSelector, useDispatch } from 'react-redux';
+
 
 interface TabPanelProps {
     children?: React.ReactNode;
@@ -49,6 +51,9 @@ function TabPanel(props: TabPanelProps) {
 
 
 export const MainPage = () => {
+
+    const isLogged = useSelector((state: any) => state.isLogged)
+    const dispatch = useDispatch()
 
     const [value, setValue] = React.useState(0);
 
