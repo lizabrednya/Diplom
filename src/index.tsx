@@ -2,6 +2,7 @@ import { StyledComponentProps, StyledEngineProvider } from "@mui/material/styles
 import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
+import 'typeface-inter';
 
 import { App } from "./App";
 import { rootStore } from "./store";

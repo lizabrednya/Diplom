@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import styles from "./IconsPage.module.css"
-import { Button, Card, CardActions, CardContent, CardMedia, TextField, Typography } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import Box from '@mui/material/Box';
 
 

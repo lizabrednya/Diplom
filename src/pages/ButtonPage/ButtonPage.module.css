@@ -2,21 +2,3 @@
     margin-left: 3.6vw;
     margin-right: 3.6vw;
 }
-.back {
-    font-size: 24px;
-    font-weight: 400;
-    color: black;
-    text-transform: none;
-    margin-left: -25px;
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-}
-.backIcon {
-    height: 19px;
-    margin-top: -6px;
-}
-.heading {
-    margin-top: 20px;
-    margin-bottom: 30px;
-}
