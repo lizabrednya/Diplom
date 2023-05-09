@@ -73,7 +73,7 @@ export const ComponentsPage = () => {
                         <Typography variant="body2">
                         {c.desc}
                         </Typography>
-                        <Button onClick={() => navigate(`/components/${c.name.toLowerCase()}`)}>открыть</Button>
+                        <Button onClick={() => navigate(`/components/${c.name.toLowerCase()}`)} variant="contained">Посмотреть</Button>
                     </CardContent>
                 </Card>
                 ))

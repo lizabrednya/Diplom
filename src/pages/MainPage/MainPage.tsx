@@ -227,14 +227,15 @@ export const MainPage = () => {
                 </Select>
             </FormControl>
             </div>
-            <Typography>Любимые предметы</Typography>
+            {/* <Typography>Любимые предметы</Typography>
             <MuiChipsInput 
                 value={chips} 
                 onChange={handleChangeChips} 
                 placeholder="Введите предмет" 
-                className={styles.chips}/>
+                className={styles.chips}/> */}
         </TabPanel>
         <TabPanel value={value} index={2}>
+            <Typography variant="h5">Предметы</Typography>
             <div style={{ height: 400, width: '30%' }}>
                 <DataGrid rows={rows} columns={columns} 
                     slots={{ toolbar: GridToolbar }} 

@@ -59,11 +59,12 @@ export const ColorsPage = () => {
                     {c}
                     </Typography>
                     <Snackbar
-                    open={open}
-                    autoHideDuration={2000}
-                    onClose={handleClose}
-                    message='Цвет скопирован!'
-                    transitionDuration={600}
+                        open={open}
+                        autoHideDuration={2000}
+                        onClose={handleClose}
+                        message='Цвет скопирован!'
+                        transitionDuration={600}
+                        anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
                     />
                     <Button className={styles.cardIcon}
                     onClick={() => handleCopy(c)}>

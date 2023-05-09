@@ -7,6 +7,8 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormLabel from '@mui/material/FormLabel';
 import Box from '@mui/material/Box';
 import { useLocation, useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from 'react-redux';
+import { handleLoggin } from "../../store/reducers";
 
 
 export const RegistrationPage = () => {
@@ -14,10 +16,17 @@ export const RegistrationPage = () => {
     const { pathname } = useLocation();
 
     const onBackClick = useCallback(() => {
-        navigate(`/`);
+        navigate(`/login`);
       }, [navigate]);
 
-  
+    
+    const isLogged = useSelector((state: any) => state.isLogged)
+    const dispatch = useDispatch()
+    const onLoginClick = useCallback(() => {
+        dispatch(handleLoggin())
+        navigate(`/me`);
+    }, [navigate]);
+
     return (
     <Box className={styles.centered}>
         <Button onClick={onBackClick}>Назад</Button>
@@ -39,6 +48,7 @@ export const RegistrationPage = () => {
         <Button
             variant="contained"
             className={styles.block}
+            onClick={onLoginClick}
         >Зарегистрироваться
         </Button>
     </Box>

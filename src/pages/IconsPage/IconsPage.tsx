@@ -12,6 +12,7 @@ export const IconsPage = () => {
         <Typography className={styles.text}>
             Тут иконки
         </Typography>
+        <Button variant="contained" sx={{mt: '5em'}}>Скачать</Button>
     </Box>
     )
   };
