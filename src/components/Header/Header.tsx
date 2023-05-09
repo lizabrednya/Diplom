@@ -2,10 +2,11 @@ import { useCallback } from "react";
 import React from "react";
 import styles from "./Header.module.css"
 import { useLocation, useNavigate } from "react-router-dom";
-import { Box, Button, Grid, Menu, MenuItem, Typography } from "@mui/material";
+import { Box, Button, Grid, Menu, MenuItem, Modal, Switch, Typography } from "@mui/material";
 import { useSelector, useDispatch } from 'react-redux';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import { handleLoggin, handleTheme } from "../../store/reducers";
 
 
 export const Header = () => {
@@ -14,15 +15,17 @@ export const Header = () => {
 
     const navigate = useNavigate();
     const { pathname } = useLocation();
-
+    
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
     const handleMenu = (event: React.MouseEvent<HTMLButtonElement>) => {
         setAnchorEl(event.currentTarget);
     };
-    const handleClose = () => {
+    const handleCloseMenu = () => {
         setAnchorEl(null);
     };
+
+    const [openModal, setOpenModal] = React.useState(false);
 
     if (pathname === "/login" || pathname === "/register") return null;
     else
@@ -62,20 +65,20 @@ export const Header = () => {
                     aria-expanded={open ? 'true' : undefined}
                     onClick={handleMenu}
                     >
-                    Liza Brednya
+                    Лиза Бредня
                 </Button>
                 <Menu
                     id="basic-menu"
                     anchorEl={anchorEl}
                     open={open}
-                    onClose={handleClose}
+                    onClose={handleCloseMenu}
                     MenuListProps={{
                     'aria-labelledby': 'basic-button',
                     }}
                 >
-                    <MenuItem onClick={handleClose}>Мои данные</MenuItem>
-                    <MenuItem onClick={handleClose}>Сменить тему</MenuItem>
-                    <MenuItem onClick={handleClose}>Выйти</MenuItem>
+                    <MenuItem onClick={() => {navigate(`/me`); handleCloseMenu}}>Мои данные</MenuItem>
+                    <MenuItem onClick={() => setOpenModal(true)}>Сменить тему</MenuItem>
+                    <MenuItem onClick={() => {dispatch(handleLoggin()); navigate(`/`);}}>Выйти</MenuItem>
                 </Menu>
                 </div> :
                 <Button
@@ -85,6 +88,19 @@ export const Header = () => {
                 Вход
                 </Button>
             }
+            <Modal
+                open={openModal}
+                onClose={() => setOpenModal(false)}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+            >
+                <Box className={styles.modal} sx={{bgcolor: 'background.paper'}}>
+                    <Typography variant="h5" className={styles.modalContent}>
+                        Поменять тему
+                    </Typography>
+                    <Switch onChange={() => dispatch(handleTheme())} />
+                </Box>
+            </Modal>
         </div>
         );
 };

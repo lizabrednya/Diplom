@@ -3,23 +3,39 @@
     flex-direction: row;
     margin-bottom: 5em;
     justify-content: space-between;
-  }
-  .header__text {
-    font-family: "Roboto", serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 22px;
-    line-height: 38px;
-    text-decoration: none;
-    color: #000000;
-  }
-  .header__main {
-    margin-right: 2em;
-  }
-  .header__login {
-    margin-left: auto;
-  }
-  .box{
-    width: 350px;
-  }
+}
+.header__text {
+  font-family: "Roboto", serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 38px;
+  text-decoration: none;
+  color: #000000;
+}
+.header__main {
+  margin-right: 2em;
+}
+.header__login {
+  margin-left: auto;
+}
+.box{
+  width: 350px;
+}
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30%;
+  height: 30%;
+  border: 2px solid #000;
+  box-shadow: 24;
+  padding: 4;
+  text-align: center;
+}
+.modalContent {
+  margin-top: 2em;
+  display: inline-block;
+}
   

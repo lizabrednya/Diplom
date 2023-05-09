@@ -1,6 +1,6 @@
 import styles from "./MainPage.module.css";
-import React from "react";
-import { Button, Tab, Tabs, TextField, Typography } from "@mui/material";
+import React, { useState } from "react";
+import { Button, IconButton, Input, Tab, Tabs, TextField, Typography } from "@mui/material";
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -11,6 +11,10 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import { MuiChipsInput } from 'mui-chips-input'
+import { DataGrid, GridToolbar } from '@mui/x-data-grid';
+import { useDemoData } from '@mui/x-data-grid-generator';
+import EditIcon from "@mui/icons-material/Edit";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -52,9 +56,6 @@ function TabPanel(props: TabPanelProps) {
 
 export const MainPage = () => {
 
-    const isLogged = useSelector((state: any) => state.isLogged)
-    const dispatch = useDispatch()
-
     const [value, setValue] = React.useState(0);
 
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
@@ -75,6 +76,69 @@ export const MainPage = () => {
     const handleChangeChips = (newChips: any) => {
         setChips(newChips)
     }
+
+
+    const [hoveredRow, setHoveredRow] = React.useState(0);
+
+    const onMouseEnterRow = (event: any) => {
+        const id = Number(event.currentTarget.getAttribute("data-id"));
+        setHoveredRow(id);
+    };
+
+    const onMouseLeaveRow = (event: any) => {
+        setHoveredRow(0);
+    };
+
+    const [newVal, setNewVal] = useState("")
+
+    const columns = [
+        { field: "name", headerName: "Название", width: 160, editable: true },
+        {
+          field: "actions",
+          headerName: "",
+          width: 120,
+          sortable: false,
+          disableColumnMenu: true,
+          renderCell: (params: any) => {
+            if (hoveredRow === params.id) {
+              return (
+                <Box
+                  sx={{
+                    width: "100%",
+                    height: "100%",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center"
+                  }}
+                >
+                  <IconButton onClick={() => console.log(params.id)}>
+                    <EditIcon />
+                  </IconButton>
+                  <IconButton onClick={() => setRows(rows.filter(a => a.id != params.id))}>
+                    <DeleteIcon />
+                  </IconButton>
+                </Box>
+              );
+            } else return null;
+          }
+        }
+      ];
+    
+
+    const [rows, setRows] = useState([
+    {
+        id: 1,
+        name: "Философия",
+    },
+    {
+        id: 2,
+        name: "Машинное обучение",
+    },
+    {
+        id: 3,
+        name: "Физра",
+    }
+    ]);
   
     return (
     <div className={styles.app}>
@@ -132,28 +196,36 @@ export const MainPage = () => {
         </TabPanel>
         <TabPanel value={value} index={1}>
             <div>
+            <FormControl className={styles.selects}>
+                <InputLabel id="demo-simple-select-label">Выберите университет</InputLabel>
                 <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
                     value={uni}
                     label="Выберите университет"
                     onChange={handleChangeUni}
-                    className={styles.selects}
                 >
                     <MenuItem value={10}>Бауманка</MenuItem>
                     <MenuItem value={20}>Бауманка 2</MenuItem>
                     <MenuItem value={30}>СурГУ</MenuItem>
                 </Select>
+            </FormControl>
             </div>
             <div>
+            <FormControl className={styles.selects}>
+                <InputLabel id="demo-simple-select-label">Выберите группу</InputLabel>
                 <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
                     value={group}
                     label="Выберите группу"
                     onChange={handleChangeGroup}
-                    className={styles.selects}
                 >
                     <MenuItem value={10}>ИУ5-84</MenuItem>
                     <MenuItem value={20}>ИУ5-81</MenuItem>
                     <MenuItem value={30}>ИУ5-82</MenuItem>
                 </Select>
+            </FormControl>
             </div>
             <Typography>Любимые предметы</Typography>
             <MuiChipsInput 
@@ -163,7 +235,30 @@ export const MainPage = () => {
                 className={styles.chips}/>
         </TabPanel>
         <TabPanel value={value} index={2}>
-            Item Three
+            <div style={{ height: 400, width: '30%' }}>
+                <DataGrid rows={rows} columns={columns} 
+                    slots={{ toolbar: GridToolbar }} 
+                    componentsProps={{
+                        row: {
+                        onMouseEnter: onMouseEnterRow,
+                        onMouseLeave: onMouseLeaveRow
+                        }
+                    }}/>
+            </div>
+            <Box className={styles.inputs}>
+            <TextField
+                label="Новый предмет"
+                value={newVal}
+                onChange={(event) => {setNewVal(event.target.value)}}
+            />
+            <Button variant="contained" className={styles.addButton}
+                onClick={()=> {
+                    setRows([...rows, {id: rows.length + 1, name: newVal}]);
+                    setNewVal("")
+                }}
+                >Добавить
+            </Button>
+            </Box>
         </TabPanel>
     </div>
     )

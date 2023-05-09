@@ -1,0 +1,11 @@
+.app {
+    margin-left: 3.6vw;
+    margin-right: 3.6vw;
+}
+.pic {
+    width: 70%;
+    height: 60vh;
+    margin-bottom: 2vh;
+    background-color: #00949A;
+    display:inline-block;
+}

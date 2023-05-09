@@ -1,6 +1,6 @@
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 import styles from "./ColorsPage.module.css"
-import { Button, Card, CardActions, CardContent, CardMedia, TextField, Typography } from "@mui/material";
+import { Button, Card, CardActions, CardContent, CardMedia, Snackbar, TextField, Typography } from "@mui/material";
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -16,6 +16,20 @@ export const ColorsPage = () => {
         "#ff9b00",
         "#95ddc4"
     ]
+
+    const [open, setOpen] = useState(false);
+    const handleClose = (event: React.SyntheticEvent | Event, reason?: string) => {
+        if (reason === 'clickaway') {
+          return;
+        }
+    
+        setOpen(false);
+    };
+    
+    const handleCopy = (c: string) => {
+        setOpen(true)
+        navigator.clipboard.writeText(c)
+    }
   
     return (
     <Box className={styles.app}>
@@ -44,7 +58,17 @@ export const ColorsPage = () => {
                     <Typography gutterBottom variant="h5" component="div">
                     {c}
                     </Typography>
-                    <Button className={styles.cardIcon}><FilterNoneSharpIcon/></Button>
+                    <Snackbar
+                    open={open}
+                    autoHideDuration={2000}
+                    onClose={handleClose}
+                    message='Цвет скопирован!'
+                    transitionDuration={600}
+                    />
+                    <Button className={styles.cardIcon}
+                    onClick={() => handleCopy(c)}>
+                        <FilterNoneSharpIcon/>
+                    </Button>
                 </CardContent>
             </Card>
             ))

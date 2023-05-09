@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 import styles from "./ComponentsPage.module.css"
 import { Alert, Button, Card, CardActions, CardContent, CardMedia, Grid, TextField, Typography } from "@mui/material";
 import Radio from '@mui/material/Radio';
@@ -7,19 +7,29 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormLabel from '@mui/material/FormLabel';
 import Box from '@mui/material/Box';
 import FilterNoneSharpIcon from '@mui/icons-material/FilterNoneSharp';
+import { useNavigate } from "react-router-dom";
 
 
 export const ComponentsPage = () => {
 
+    const navigate = useNavigate();
+
     const components = [
-        {name: "button", desc: "первичные вторичные и третичные кнопки"},
-        {name: "button", desc: "первичные вторичные и третичные кнопки"},
-        {name: "button", desc: "первичные вторичные и третичные кнопки"},
-        {name: "button", desc: "первичные вторичные и третичные кнопки"},
-        {name: "button", desc: "первичные вторичные и третичные кнопки"},
-        {name: "button", desc: "первичные вторичные и третичные кнопки"},
-        {name: "button", desc: "первичные вторичные и третичные кнопки"},
-        {name: "button", desc: "первичные вторичные и третичные кнопки"},
+        {name: "Button", desc: "первичные вторичные и третичные кнопки"},
+        {name: "Input", desc: "первичные вторичные и третичные кнопки"},
+        {name: "Select", desc: "первичные вторичные и третичные кнопки"},
+        {name: "Checkbox", desc: "первичные вторичные и третичные кнопки"},
+        {name: "Radiobutton", desc: "первичные вторичные и третичные кнопки"},
+        {name: "Switch", desc: "первичные вторичные и третичные кнопки"},
+        {name: "Tabs", desc: "первичные вторичные и третичные кнопки"},
+        {name: "Card", desc: "первичные вторичные и третичные кнопки"},
+        {name: "List", desc: "первичные вторичные и третичные кнопки"},
+        {name: "Table", desc: "первичные вторичные и третичные кнопки"},
+        {name: "Calendar", desc: "первичные вторичные и третичные кнопки"},
+        {name: "Modal", desc: "первичные вторичные и третичные кнопки"},
+        {name: "Alert", desc: "первичные вторичные и третичные кнопки"},
+        {name: "Appbar", desc: "первичные вторичные и третичные кнопки"},
+        {name: "Badge", desc: "первичные вторичные и третичные кнопки"},
     ]
   
     return (
@@ -63,7 +73,7 @@ export const ComponentsPage = () => {
                         <Typography variant="body2">
                         {c.desc}
                         </Typography>
-                        <Button>открыть</Button>
+                        <Button onClick={() => navigate(`/components/${c.name.toLowerCase()}`)}>открыть</Button>
                     </CardContent>
                 </Card>
                 ))

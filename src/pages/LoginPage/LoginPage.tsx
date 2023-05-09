@@ -26,7 +26,7 @@ export const LoginPage = () => {
 
     const onLoginClick = useCallback(() => {
       dispatch(handleLoggin())
-      navigate(`/`);
+      navigate(`/me`);
     }, [navigate]);
 
   
