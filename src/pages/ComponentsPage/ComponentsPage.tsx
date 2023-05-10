@@ -8,6 +8,7 @@ import FormLabel from '@mui/material/FormLabel';
 import Box from '@mui/material/Box';
 import FilterNoneSharpIcon from '@mui/icons-material/FilterNoneSharp';
 import { useNavigate } from "react-router-dom";
+import { Button_IU5 } from "../../components/customized/Button_IU5";
 
 
 export const ComponentsPage = () => {
@@ -73,7 +74,7 @@ export const ComponentsPage = () => {
                         <Typography variant="body2">
                         {c.desc}
                         </Typography>
-                        <Button onClick={() => navigate(`/components/${c.name.toLowerCase()}`)} variant="contained">Посмотреть</Button>
+                        <Button_IU5 onClick={() => navigate(`/components/${c.name.toLowerCase()}`)} variant="contained">Посмотреть</Button_IU5>
                     </CardContent>
                 </Card>
                 ))

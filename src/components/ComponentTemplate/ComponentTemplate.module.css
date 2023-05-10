@@ -1,16 +1,16 @@
 .back {
-    font-size: 24px;
-    font-weight: 400;
-    color: black;
-    text-transform: none;
+    /* font-size: 24px; */
+    /* font-weight: 400;
+    color: black; */
+    /* text-transform: none; */
     margin-left: -25px;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
+    text-align: start;
 }
 .backIcon {
     height: 19px;
-    margin-top: -6px;
 }
 .heading {
     margin-top: 20px;

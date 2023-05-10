@@ -9,6 +9,7 @@ import Box from '@mui/material/Box';
 import { useLocation, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
 import { handleLoggin } from "../../store/reducers";
+import { Button_IU5 } from "../../components/customized/Button_IU5";
 
 
 export const RegistrationPage = () => {
@@ -29,7 +30,7 @@ export const RegistrationPage = () => {
 
     return (
     <Box className={styles.centered}>
-        <Button onClick={onBackClick}>Назад</Button>
+        <Button_IU5 onClick={onBackClick} variant="text">Назад</Button_IU5>
         <Typography variant="h4" component="h4">
             Регистрация
         </Typography>
@@ -45,12 +46,12 @@ export const RegistrationPage = () => {
             className={styles.block}
             label="Повторите пароль"
         />
-        <Button
+        <Button_IU5
             variant="contained"
             className={styles.block}
             onClick={onLoginClick}
         >Зарегистрироваться
-        </Button>
+        </Button_IU5>
     </Box>
     )
   };

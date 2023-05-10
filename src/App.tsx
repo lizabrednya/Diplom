@@ -32,13 +32,13 @@ import { CssBaseline, Table } from "@mui/material";
 import { useSelector } from "react-redux";
 
 
-const darkTheme = createTheme({
+export const darkTheme = createTheme({
   palette: {
     mode: 'dark',
   },
 });
 
-const lightTheme = createTheme({
+export const lightTheme = createTheme({
   palette: {
     mode: 'light',
   },

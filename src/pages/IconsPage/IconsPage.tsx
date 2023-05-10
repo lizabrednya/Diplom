@@ -2,6 +2,7 @@ import { useCallback } from "react";
 import styles from "./IconsPage.module.css"
 import { Button, Typography } from "@mui/material";
 import Box from '@mui/material/Box';
+import { Button_IU5 } from "../../components/customized/Button_IU5";
 
 
 export const IconsPage = () => {
@@ -12,7 +13,7 @@ export const IconsPage = () => {
         <Typography className={styles.text}>
             Тут иконки
         </Typography>
-        <Button variant="contained" sx={{mt: '5em'}}>Скачать</Button>
+        <Button_IU5 variant="contained" sx={{mt: '5em'}}>Скачать</Button_IU5>
     </Box>
     )
   };

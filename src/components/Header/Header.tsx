@@ -7,6 +7,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import { handleLoggin, handleTheme } from "../../store/reducers";
+import { Button_IU5 } from "../../components/customized/Button_IU5";
 
 
 export const Header = () => {
@@ -31,34 +32,35 @@ export const Header = () => {
     else
         return (
         <div className={styles.header}>
-            <Button
+            <Button_IU5
                 onClick={() => navigate(`/`)}
                 className={styles.header__main}
+                variant={pathname === '/' ? "contained" : "text"}
             >Главная
-            </Button>
-            <Button
+            </Button_IU5>
+            <Button_IU5
                 onClick={() => navigate(`/colors`)}
                 variant={pathname === '/colors' ? "contained" : "text"}
             >Цвета
-            </Button>
-            <Button
+            </Button_IU5>
+            <Button_IU5
                 onClick={() => navigate(`/fonts`)}
                 variant={pathname === '/fonts' ? "contained" : "text"}
             >Шрифты
-            </Button>
-            <Button
+            </Button_IU5>
+            <Button_IU5
                 onClick={() => navigate(`/components`)}
                 variant={pathname === '/components' ? "contained" : "text"}
             >Компоненты
-            </Button>
-            <Button
+            </Button_IU5>
+            <Button_IU5
                 onClick={() => navigate(`/icons`)}
                 variant={pathname === '/icons' ? "contained" : "text"}
             >Иконки
-            </Button>
+            </Button_IU5>
             { isLogged ?
                 <div className={styles.header__login}>
-                <Button 
+                <Button_IU5 
                     endIcon={open ? <KeyboardArrowUpIcon/> : <KeyboardArrowDownIcon />}
                     aria-controls={open ? 'basic-menu' : undefined}
                     aria-haspopup="true"
@@ -66,7 +68,7 @@ export const Header = () => {
                     onClick={handleMenu}
                     >
                     Лиза Бредня
-                </Button>
+                </Button_IU5>
                 <Menu
                     id="basic-menu"
                     anchorEl={anchorEl}
@@ -81,12 +83,12 @@ export const Header = () => {
                     <MenuItem onClick={() => {dispatch(handleLoggin()); navigate(`/`);}}>Выйти</MenuItem>
                 </Menu>
                 </div> :
-                <Button
+                <Button_IU5
                     onClick={() => navigate(`/login`)}
                     className={styles.header__login}
                 >
                 Вход
-                </Button>
+                </Button_IU5>
             }
             <Modal
                 open={openModal}

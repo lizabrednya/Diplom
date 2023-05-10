@@ -10,6 +10,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 import { useSelector, useDispatch } from 'react-redux';
 import { handleLoggin } from "../../store/reducers";
+import { Button_IU5 } from "../../components/customized/Button_IU5";
 
 
 export const LoginPage = () => {
@@ -32,7 +33,7 @@ export const LoginPage = () => {
   
     return (
     <Box className={styles.centered}>
-        <Button onClick={onBackClick}>Назад</Button>
+        <Button_IU5 onClick={onBackClick} variant="text">Назад</Button_IU5>
         <Typography variant="h4" component="h4">
             Вход в систему
         </Typography>
@@ -44,17 +45,17 @@ export const LoginPage = () => {
           className={styles.block}
           label="Пароль"
         />
-        <Button
+        <Button_IU5
           variant="contained"
           className={styles.block}
           onClick={onLoginClick}
         >Войти
-        </Button>
-        <Button
+        </Button_IU5>
+        <Button_IU5
           variant="contained"
           className={styles.block}
         >Войти через ЭУ
-        </Button>
+        </Button_IU5>
         <div className={styles.block}>Нет аккаунта? <a href="register">Зарегистрироваться</a></div>
     </Box>
     )
