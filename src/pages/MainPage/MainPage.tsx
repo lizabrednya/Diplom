@@ -10,13 +10,10 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
-import { MuiChipsInput } from 'mui-chips-input'
-import { DataGrid, GridToolbar } from '@mui/x-data-grid';
-import { useDemoData } from '@mui/x-data-grid-generator';
-import EditIcon from "@mui/icons-material/Edit";
-import DeleteIcon from "@mui/icons-material/Delete";
+import MUIDataTable from "mui-datatables";
 
 import { useSelector, useDispatch } from 'react-redux';
+import { Button_IU5 } from "../../components/customized/Button_IU5";
 
 
 interface TabPanelProps {
@@ -91,54 +88,53 @@ export const MainPage = () => {
 
     const [newVal, setNewVal] = useState("")
 
-    const columns = [
-        { field: "name", headerName: "Название", width: 160, editable: true },
-        {
-          field: "actions",
-          headerName: "",
-          width: 120,
-          sortable: false,
-          disableColumnMenu: true,
-          renderCell: (params: any) => {
-            if (hoveredRow === params.id) {
-              return (
-                <Box
-                  sx={{
-                    width: "100%",
-                    height: "100%",
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center"
-                  }}
-                >
-                  <IconButton onClick={() => console.log(params.id)}>
-                    <EditIcon />
-                  </IconButton>
-                  <IconButton onClick={() => setRows(rows.filter(a => a.id != params.id))}>
-                    <DeleteIcon />
-                  </IconButton>
-                </Box>
-              );
-            } else return null;
-          }
-        }
-      ];
-    
+    // table contents
 
-    const [rows, setRows] = useState([
-    {
-        id: 1,
-        name: "Философия",
-    },
-    {
-        id: 2,
-        name: "Машинное обучение",
-    },
-    {
-        id: 3,
-        name: "Физра",
-    }
+    const columns = ["Name", "Company", "City", "State"];
+
+    const [data, setData] = useState([
+        ["Joe James", "Test Corp", "Yonkers", "NY"],
+        ["John Walsh", "Test Corp", "Hartford", "CT"],
+        ["Bob Herm", "Test Corp", "Tampa", "FL"],
+        ["James Houston", "Test Corp", "Dallas", "TX"],
     ]);
+
+    const options = {
+        filterType: 'checkbox',
+        textLabels: {
+            body: {
+                noMatch: "Записи не найдены :(",
+                toolTip: "Сортировать",
+                columnHeaderTooltip: (column: any) => `Сортировка для ${column.label}`
+            },
+            filter: {
+                all: "ВСЕ",
+                title: "ФИЛЬТРЫ",
+                reset: "СБРОС",
+            },
+            pagination: {
+                next: "Следующая страница",
+                previous: "Предыдущая страница",
+                rowsPerPage: "Строк на страницу:"
+            },
+            viewColumns: {
+                title: "Показать колонки",
+                titleAria: "Показать/Скрыть колонки",
+            },
+                selectedRows: {
+                text: "выбрано",
+                delete: "Удалить",
+                deleteAria: "Удалить выбранные строки",
+            },
+            toolbar: {
+                search: "Поиск",
+                downloadCsv: "Скачать CSV",
+                print: "Печать",
+                viewColumns: "Колонки",
+                filterTable: "Фильтры",
+            }
+        }
+    };
   
     return (
     <div className={styles.app}>
@@ -236,15 +232,13 @@ export const MainPage = () => {
         </TabPanel>
         <TabPanel value={value} index={2}>
             <Typography variant="h5">Предметы</Typography>
-            <div style={{ height: 400, width: '30%' }}>
-                <DataGrid rows={rows} columns={columns} 
-                    slots={{ toolbar: GridToolbar }} 
-                    componentsProps={{
-                        row: {
-                        onMouseEnter: onMouseEnterRow,
-                        onMouseLeave: onMouseLeaveRow
-                        }
-                    }}/>
+            <div style={{ height: 400, width: '100%', marginTop: '20px' }}>
+                <MUIDataTable
+                    title={"Список предметов"}
+                    data={data}
+                    columns={columns}
+                    options={options}
+                />
             </div>
             <Box className={styles.inputs}>
             <TextField
@@ -252,13 +246,13 @@ export const MainPage = () => {
                 value={newVal}
                 onChange={(event) => {setNewVal(event.target.value)}}
             />
-            <Button variant="contained" className={styles.addButton}
+            <Button_IU5 variant="contained" className={styles.addButton}
                 onClick={()=> {
-                    setRows([...rows, {id: rows.length + 1, name: newVal}]);
+                    setData([...data, [newVal, 'абаб']]);
                     setNewVal("")
                 }}
                 >Добавить
-            </Button>
+            </Button_IU5>
             </Box>
         </TabPanel>
     </div>
