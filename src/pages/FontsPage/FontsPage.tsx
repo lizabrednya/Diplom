@@ -13,12 +13,9 @@ export const FontsPage = () => {
   
     return (
     <Box className={styles.app}>
-        <Typography variant="h3">Шрифты</Typography>
+        <Typography variant="h3">Типографика</Typography>
         <Typography className={styles.text}>
-        Есть много вариантов Lorem Ipsum, но большинство из них имеет не 
-        всегда приемлемые модификации, например, юмористические вставки 
-        или слова, которые даже отдалённо не напоминают латынь. Если вам 
-        нужен Lorem Ipsum для серьёзного проекта, вы наве
+        На этой странице приведены типы заголовков и их характеристики.
         </Typography>
     </Box>
     )

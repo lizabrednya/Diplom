@@ -1,11 +1,23 @@
 .centered {
     justify-content: center;
     align-items: center;
-    width: 26em;
+    width: 20em;
     margin: auto;
 }
 
 .block {
     display: block;
-    margin: 2em;
+    margin-top: 2em;
+}
+.back {
+    /* font-size: 24px; */
+    /* font-weight: 400;
+    color: black; */
+    /* text-transform: none; */
+    margin-left: -25px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    text-align: start;
+    margin-bottom: 0;
 }

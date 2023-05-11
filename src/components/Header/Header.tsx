@@ -47,7 +47,7 @@ export const Header = () => {
             <Button_IU5
                 onClick={() => navigate(`/fonts`)}
                 variant={pathname === '/fonts' ? "contained" : "text"}
-            >Шрифты
+            >Типографика
             </Button_IU5>
             <Button_IU5
                 onClick={() => navigate(`/components`)}

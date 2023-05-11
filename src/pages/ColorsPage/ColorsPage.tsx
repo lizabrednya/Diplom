@@ -11,10 +11,18 @@ import FilterNoneSharpIcon from '@mui/icons-material/FilterNoneSharp';
 
 export const ColorsPage = () => {
 
-    const colors = [
-        "#879089",
-        "#ff9b00",
-        "#95ddc4"
+    const main_colors = [
+        "#22BEC5",
+        "#EC6442",
+        "#FF8A35",
+        "#E7F3F5"
+    ]
+
+    const help_colors = [
+        "#7E7E7E",
+        "#C0C0C0",
+        "#E0E0E0",
+        "#F2F2F2"
     ]
 
     const [open, setOpen] = useState(false);
@@ -33,22 +41,41 @@ export const ColorsPage = () => {
   
     return (
     <Box className={styles.app}>
-        <Typography variant="h3">Цвета</Typography>
+        <Typography variant="h3">Цветовые сочетания</Typography>
         <Typography className={styles.text}>
-            Есть много вариантов Lorem Ipsum, но большинство 
-            из них имеет не всегда приемлемые модификации, например, 
-            юмористические вставки или слова, которые даже отдалённо не 
-            напоминают латынь. Если вам нужен Lorem Ipsum для серьёзного проекта, 
-            вы наверняка не хотите какой-нибудь шутки, скрытой в середине абзаца. 
-            Также все другие известные генераторы Lorem Ipsum используют один и тот же текст, 
-            который они просто повторяют, пока не достигнут нужный объём. Это делает предлагаемый 
-            здесь генератор единственным настоящим Lorem Ipsum генератором. Он использует словарь 
-            из более чем 200 латинских слов, а также набор моделей предложений. В результате 
-            сгенерированный Lorem Ipsum выглядит правдоподобно, не имеет повторяющихся абзацей 
-            или &ldquo;невозможных&rdquo; слов.
+            На этой странице приведены цветовые сочетания, 
+            ассоциирующийся с кафедрой. Настоятельно 
+            рекомендуется использовать компоненты, иллюстрации 
+            и другие элементы проекта в данных цветах.
         </Typography>
         <div className={styles.flex}>
-        {colors.map((c) => (
+        {main_colors.map((c) => (
+            <Card className={styles.card} key={c}>
+                <CardMedia
+                    className={styles.cardColor}
+                    sx={{backgroundColor: c}}
+                />
+                <CardContent className={styles.flex}>
+                    <Typography gutterBottom variant="h5" component="div">
+                    {c}
+                    </Typography>
+                    <Snackbar
+                        open={open}
+                        autoHideDuration={2000}
+                        onClose={handleClose}
+                        message='Цвет скопирован!'
+                        transitionDuration={600}
+                        anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+                    />
+                    <Button className={styles.cardIcon}
+                    onClick={() => handleCopy(c)}>
+                        <FilterNoneSharpIcon/>
+                    </Button>
+                </CardContent>
+            </Card>
+            ))
+        }
+        {help_colors.map((c) => (
             <Card className={styles.card} key={c}>
                 <CardMedia
                     className={styles.cardColor}

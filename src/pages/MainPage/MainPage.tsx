@@ -10,7 +10,8 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
-import MUIDataTable from "mui-datatables";
+import MUIDataTable, { TableHead } from "mui-datatables";
+import AddIcon from "@mui/icons-material/Add";
 
 import { useSelector, useDispatch } from 'react-redux';
 import { Button_IU5 } from "../../components/customized/Button_IU5";
@@ -43,12 +44,23 @@ function TabPanel(props: TabPanelProps) {
     );
   }
 
-  function a11yProps(index: number) {
+function a11yProps(index: number) {
     return {
-      id: `simple-tab-${index}`,
-      'aria-controls': `simple-tabpanel-${index}`,
+        id: `simple-tab-${index}`,
+        'aria-controls': `simple-tabpanel-${index}`,
     };
-  }
+}
+
+// https://github.com/gregnb/mui-datatables#custom-components
+
+const CustomToolbar = (props: any) => {
+    return (
+    <IconButton>
+        <AddIcon onClick={() => props.setData([[...props.data[0].map((a: any)=>a="")], ...props.data])}></AddIcon>
+    </IconButton>
+    );
+};
+
 
 
 export const MainPage = () => {
@@ -74,33 +86,111 @@ export const MainPage = () => {
         setChips(newChips)
     }
 
-
-    const [hoveredRow, setHoveredRow] = React.useState(0);
-
-    const onMouseEnterRow = (event: any) => {
-        const id = Number(event.currentTarget.getAttribute("data-id"));
-        setHoveredRow(id);
-    };
-
-    const onMouseLeaveRow = (event: any) => {
-        setHoveredRow(0);
-    };
-
     const [newVal, setNewVal] = useState("")
 
     // table contents
 
-    const columns = ["Name", "Company", "City", "State"];
+    const columns = [
+                    {name: "Название",
+                        options: {
+                            customBodyRenderLite: (rowIndex: any) => {
+                                return (
+                                <TextField
+                                    variant="standard"
+                                    sx = {{mt: '0.4em'}}
+                                    value={data[rowIndex][0]}
+                                    InputProps={{
+                                        disableUnderline: true,
+                                    }}
+                                    onChange={(event: any) => {
+                                        setData([...data.slice(0, rowIndex), [event.target.value, ...data[rowIndex].slice(1)], ...data.slice(rowIndex+1)]);
+                                    }}/>
+                                );
+                            }
+                        }
+                    },
+                    {name: "Кафедра",
+                        options: {
+                            customBodyRenderLite: (rowIndex: any) => {
+                                return (
+                                // <TextField
+                                //     variant="standard"
+                                //     sx = {{mt: '0.4em'}}
+                                //     value={data[rowIndex][1]}
+                                //     InputProps={{
+                                //         disableUnderline: true,
+                                //     }}
+                                //     onChange={(event: any) => {
+                                //         setData([...data.slice(0, rowIndex), [...data[rowIndex].slice(0, 1), event.target.value, ...data[rowIndex].slice(2)], ...data.slice(rowIndex+1)]);
+                                //     }}/>
+                                
+                                <Select
+                                    sx={{width: '8em'}}
+                                    value={data[rowIndex][1]}
+                                    onChange={(event: any) => {
+                                        setData([...data.slice(0, rowIndex), [...data[rowIndex].slice(0, 1), event.target.value, ...data[rowIndex].slice(2)], ...data.slice(rowIndex+1)]);
+                                    }}
+                                >
+                                    <MenuItem value={10}>ИУ5</MenuItem>
+                                    <MenuItem value={20}>ИУ6</MenuItem>
+                                    <MenuItem value={30}>ИУ7</MenuItem>
+                                    <MenuItem value={30}>ИУ8</MenuItem>
+                                </Select>
+                                );
+                            }
+                        }
+                    },
+                    {name: "Дата последнего занятия",
+                        options: {
+                            customBodyRenderLite: (rowIndex: any) => {
+                                return (
+                                <TextField
+                                    variant="standard"
+                                    sx = {{mt: '0.4em'}}
+                                    value={data[rowIndex][2]}
+                                    InputProps={{
+                                        disableUnderline: true,
+                                    }}
+                                    onChange={(event: any) => {
+                                        setData([...data.slice(0, rowIndex), [...data[rowIndex].slice(0, 2), event.target.value, ...data[rowIndex].slice(3)], ...data.slice(rowIndex+1)]);
+                                    }}/>
+                                );
+                            }
+                        }
+                    },
+                    {name: "Средний балл",
+                        options: {
+                            customBodyRenderLite: (rowIndex: any) => {
+                                return (
+                                <TextField
+                                    variant="standard"
+                                    sx = {{mt: '0.4em'}}
+                                    value={data[rowIndex][3]}
+                                    InputProps={{
+                                        disableUnderline: true,
+                                    }}
+                                    onChange={(event: any) => {
+                                        setData([...data.slice(0, rowIndex), [...data[rowIndex].slice(0, 3), event.target.value, ...data[rowIndex].slice(4)], ...data.slice(rowIndex+1)]);
+                                    }}/>
+                                );
+                            }
+                        }
+                    }
+                    ];
 
     const [data, setData] = useState([
-        ["Joe James", "Test Corp", "Yonkers", "NY"],
-        ["John Walsh", "Test Corp", "Hartford", "CT"],
-        ["Bob Herm", "Test Corp", "Tampa", "FL"],
-        ["James Houston", "Test Corp", "Dallas", "TX"],
+        ["Эксплуатация АСОИУ", "ИУ5", "10.05.2023", "4.5"],
+        ["Эксплуатация АСОИУ", "ИУ5", "10.05.2023", "4.5"],
+        ["Эксплуатация АСОИУ", "ИУ5", "10.05.2023", "4.5"],
+        ["Эксплуатация АСОИУ", "ИУ5", "10.05.2023", "4.5"],
     ]);
 
     const options = {
         filterType: 'checkbox',
+        print: false,
+        download: false,
+        viewColumns: false,
+        pagination: false,
         textLabels: {
             body: {
                 noMatch: "Записи не найдены :(",
@@ -133,6 +223,11 @@ export const MainPage = () => {
                 viewColumns: "Колонки",
                 filterTable: "Фильтры",
             }
+        },
+        customToolbar: () => {
+            return (
+              <CustomToolbar setData={setData} data={data}/>
+            );
         }
     };
   
@@ -153,10 +248,17 @@ export const MainPage = () => {
                 <TextField
                     className={styles.inputs}
                     label="Фамилия"
+                    variant="filled"
                 />
                 <TextField
                     className={styles.inputs}
                     label="Имя"
+                    variant="filled"
+                />
+                <TextField
+                    className={styles.inputs}
+                    label="Имя"
+                    variant="filled"
                 />
             </div>
             <FormControl>
@@ -175,6 +277,7 @@ export const MainPage = () => {
                     className={styles.inputs}
                     label="Дата рождения"
                     placeholder="дд.мм.гггг"
+                    variant="filled"
                 />
             </div>
             <div>
@@ -182,13 +285,21 @@ export const MainPage = () => {
                     className={styles.inputs}
                     label="Телефон"
                     placeholder="+7 123 456-78-90"
+                    variant="filled"
                 />
                 <TextField
                     className={styles.inputs}
                     label="Почта"
                     placeholder="example@mail.ru"
+                    variant="filled"
                 />
             </div>
+            <Button_IU5
+                variant="contained"
+                className={styles.block}
+                sx={{ml: '0'}}>
+                Сохранить   
+            </Button_IU5>
         </TabPanel>
         <TabPanel value={value} index={1}>
             <div>
@@ -200,6 +311,7 @@ export const MainPage = () => {
                     value={uni}
                     label="Выберите университет"
                     onChange={handleChangeUni}
+                    variant="filled"
                 >
                     <MenuItem value={10}>Бауманка</MenuItem>
                     <MenuItem value={20}>Бауманка 2</MenuItem>
@@ -216,6 +328,7 @@ export const MainPage = () => {
                     value={group}
                     label="Выберите группу"
                     onChange={handleChangeGroup}
+                    variant="filled"
                 >
                     <MenuItem value={10}>ИУ5-84</MenuItem>
                     <MenuItem value={20}>ИУ5-81</MenuItem>
@@ -223,6 +336,12 @@ export const MainPage = () => {
                 </Select>
             </FormControl>
             </div>
+            <Button_IU5
+                variant="contained"
+                className={styles.block}
+                sx={{ml: '0'}}>
+                Сохранить   
+            </Button_IU5>
             {/* <Typography>Любимые предметы</Typography>
             <MuiChipsInput 
                 value={chips} 
@@ -240,7 +359,7 @@ export const MainPage = () => {
                     options={options}
                 />
             </div>
-            <Box className={styles.inputs}>
+            {/* <Box className={styles.inputs}>
             <TextField
                 label="Новый предмет"
                 value={newVal}
@@ -253,7 +372,7 @@ export const MainPage = () => {
                 }}
                 >Добавить
             </Button_IU5>
-            </Box>
+            </Box> */}
         </TabPanel>
     </div>
     )
