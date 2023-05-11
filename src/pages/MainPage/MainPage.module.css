@@ -6,10 +6,6 @@
     margin-left: 2em;
     margin-top: 0.7em;
 }
-.app {
-    margin-left: 3.6vw;
-    margin-right: 3.6vw;
-}
 .selects {
     width: 15em;
     margin: 2em;
@@ -19,3 +15,4 @@
 .chips {
     width: 20em;
 }
+ 

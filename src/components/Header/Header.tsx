@@ -31,11 +31,12 @@ export const Header = () => {
     if (pathname === "/login" || pathname === "/register") return null;
     else
         return (
-        <div className={styles.header}>
+        <div className={styles.header} style={{backgroundColor: pathname === '/' ? "#E7F3F5" : "white"}}>
             <Button_IU5
                 onClick={() => navigate(`/`)}
                 className={styles.header__main}
                 variant={pathname === '/' ? "contained" : "text"}
+                sx={{marginLeft: 0}}
             >Главная
             </Button_IU5>
             <Button_IU5
@@ -69,19 +70,21 @@ export const Header = () => {
                     >
                     Лиза Бредня
                 </Button_IU5>
-                <Menu
-                    id="basic-menu"
-                    anchorEl={anchorEl}
-                    open={open}
-                    onClose={handleCloseMenu}
-                    MenuListProps={{
-                    'aria-labelledby': 'basic-button',
-                    }}
-                >
-                    <MenuItem onClick={() => {navigate(`/me`); handleCloseMenu}}>Мои данные</MenuItem>
-                    <MenuItem onClick={() => setOpenModal(true)}>Сменить тему</MenuItem>
-                    <MenuItem onClick={() => {dispatch(handleLoggin()); navigate(`/`);}}>Выйти</MenuItem>
-                </Menu>
+                { open &&
+                    <Menu
+                        id="basic-menu"
+                        anchorEl={anchorEl}
+                        open={open}
+                        onClose={handleCloseMenu}
+                        MenuListProps={{
+                        'aria-labelledby': 'basic-button',
+                        }}
+                    >
+                        <MenuItem onClick={() => {handleCloseMenu; navigate(`/me`)}}>Мои данные</MenuItem>
+                        <MenuItem onClick={() => setOpenModal(true)}>Сменить тему</MenuItem>
+                        <MenuItem onClick={() => {dispatch(handleLoggin()); navigate(`/`);}}>Выйти</MenuItem>
+                    </Menu>
+                }
                 </div> :
                 <Button_IU5
                     onClick={() => navigate(`/login`)}

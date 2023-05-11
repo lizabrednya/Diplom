@@ -40,15 +40,18 @@ export const LoginPage = () => {
         <TextField
           className={styles.block}
           label="Логин"
+          variant="filled"
         />
         <TextField
           className={styles.block}
           label="Пароль"
+          variant="filled"
         />
         <Button_IU5
           variant="contained"
           className={styles.block}
           onClick={onLoginClick}
+          sx={{width: '100%'}}
         >Войти
         </Button_IU5>
         <Button_IU5
