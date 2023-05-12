@@ -77,6 +77,13 @@ export const MainPage = () => {
     };
     const [uni, setUni] = React.useState('');
     const [group, setGroup] = React.useState('');
+    const [bday, setBday] = React.useState('');
+    const [name, setName] = React.useState('');
+    const [surname, setSurname] = React.useState('');
+    const [otch, setOtch] = React.useState('');
+    const [phone, setPhone] = React.useState('');
+    const [mail, setMail] = React.useState('');
+    const [gender, setGender] = React.useState('');
 
     const handleChangeUni = (event: SelectChangeEvent) => {
         setUni(event.target.value as string);
@@ -247,16 +254,22 @@ export const MainPage = () => {
                     className={styles.inputs}
                     label="Фамилия"
                     variant="filled"
+                    value={surname}
+                    onChange={(e: any) => setSurname(e.target.value)}
                 />
                 <TextField
                     className={styles.inputs}
                     label="Имя"
                     variant="filled"
+                    value={name}
+                    onChange={(e: any) => setName(e.target.value)}
                 />
                 <TextField
                     className={styles.inputs}
-                    label="Имя"
+                    label="Отчество"
                     variant="filled"
+                    value={otch}
+                    onChange={(e: any) => setOtch(e.target.value)}
                 />
             </div>
             <FormControl>
@@ -265,6 +278,8 @@ export const MainPage = () => {
                     row
                     aria-labelledby="demo-row-radio-buttons-group-label"
                     name="row-radio-buttons-group"
+                    value={gender}
+                    onChange={(e: any) => setGender(e.target.value)}
                 >
                     <FormControlLabel value="female" control={<Radio />} label="Мужской" />
                     <FormControlLabel value="male" control={<Radio />} label="Женский" />
@@ -276,6 +291,8 @@ export const MainPage = () => {
                     label="Дата рождения"
                     placeholder="дд.мм.гггг"
                     variant="filled"
+                    value={bday}
+                    onChange={(e: any) => setBday(e.target.value)}
                 />
             </div>
             <div>
@@ -284,12 +301,16 @@ export const MainPage = () => {
                     label="Телефон"
                     placeholder="+7 123 456-78-90"
                     variant="filled"
+                    value={phone}
+                    onChange={(e: any) => setPhone(e.target.value)}
                 />
                 <TextField
                     className={styles.inputs}
                     label="Почта"
                     placeholder="example@mail.ru"
                     variant="filled"
+                    value={mail}
+                    onChange={(e: any) => setMail(e.target.value)}
                 />
             </div>
             <Button_IU5
