@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react";
 import styles from "./ColorsPage.module.css"
-import { Button, Card, CardActions, CardContent, CardMedia, Snackbar, TextField, Typography } from "@mui/material";
+import { Button, Card, CardActions, CardContent, CardMedia, Grid, Snackbar, TextField, Typography } from "@mui/material";
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -49,58 +49,72 @@ export const ColorsPage = () => {
             и другие элементы проекта в данных цветах.
         </Typography>
         <div className={styles.flex}>
-        {main_colors.map((c) => (
-            <Card className={styles.card} key={c}>
-                <CardMedia
-                    className={styles.cardColor}
-                    sx={{backgroundColor: c}}
-                />
-                <CardContent className={styles.flex}>
-                    <Typography gutterBottom variant="h5" component="div">
-                    {c}
-                    </Typography>
-                    <Snackbar
-                        open={open}
-                        autoHideDuration={2000}
-                        onClose={handleClose}
-                        message='Цвет скопирован!'
-                        transitionDuration={600}
-                        anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-                    />
-                    <Button className={styles.cardIcon}
-                    onClick={() => handleCopy(c)}>
-                        <FilterNoneSharpIcon/>
-                    </Button>
-                </CardContent>
-            </Card>
-            ))
-        }
-        {help_colors.map((c) => (
-            <Card className={styles.card} key={c}>
-                <CardMedia
-                    className={styles.cardColor}
-                    sx={{backgroundColor: c}}
-                />
-                <CardContent className={styles.flex}>
-                    <Typography gutterBottom variant="h5" component="div">
-                    {c}
-                    </Typography>
-                    <Snackbar
-                        open={open}
-                        autoHideDuration={2000}
-                        onClose={handleClose}
-                        message='Цвет скопирован!'
-                        transitionDuration={600}
-                        anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-                    />
-                    <Button className={styles.cardIcon}
-                    onClick={() => handleCopy(c)}>
-                        <FilterNoneSharpIcon/>
-                    </Button>
-                </CardContent>
-            </Card>
-            ))
-        }
+            <Grid container spacing={2}>
+                <Grid item xs={4}
+                    container
+                    spacing={2}
+                    direction="row"
+                    alignItems="flex-start">
+                    {main_colors.map((c) => (
+                        <Card className={styles.card} key={c}>
+                            <CardMedia
+                                className={styles.cardColor}
+                                sx={{backgroundColor: c}}
+                            />
+                            <CardContent className={styles.flex}>
+                                <Typography gutterBottom variant="h5" component="div">
+                                {c}
+                                </Typography>
+                                <Snackbar
+                                    open={open}
+                                    autoHideDuration={2000}
+                                    onClose={handleClose}
+                                    message='Цвет скопирован!'
+                                    transitionDuration={600}
+                                    anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+                                />
+                                <Button className={styles.cardIcon}
+                                onClick={() => handleCopy(c)}>
+                                    <FilterNoneSharpIcon/>
+                                </Button>
+                            </CardContent>
+                        </Card>
+                        ))
+                    }
+                </Grid>
+                <Grid item xs={4}
+                    container
+                    spacing={2}
+                    direction="row"
+                    alignItems="flex-start">
+                    {help_colors.map((c) => (
+                        <Card className={styles.card} key={c}>
+                            <CardMedia
+                                className={styles.cardColor}
+                                sx={{backgroundColor: c}}
+                            />
+                            <CardContent className={styles.flex}>
+                                <Typography gutterBottom variant="h5" component="div">
+                                {c}
+                                </Typography>
+                                <Snackbar
+                                    open={open}
+                                    autoHideDuration={2000}
+                                    onClose={handleClose}
+                                    message='Цвет скопирован!'
+                                    transitionDuration={600}
+                                    anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+                                />
+                                <Button className={styles.cardIcon}
+                                onClick={() => handleCopy(c)}>
+                                    <FilterNoneSharpIcon/>
+                                </Button>
+                            </CardContent>
+                        </Card>
+                        ))
+                    }
+                </Grid>
+        </Grid>
         </div>
     </Box>
     )

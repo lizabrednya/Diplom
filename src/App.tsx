@@ -42,12 +42,6 @@ export const lightTheme = createTheme({
   palette: {
     mode: 'light',
   },
-  // typography: {
-  //   fontFamily: [
-  //     'Inter',
-  //     'sans-serif',
-  //   ].join(','),
-  // },
 });
 
 export const App = () => {

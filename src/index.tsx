@@ -11,6 +11,7 @@ import { rootStore } from "./store";
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
+
 root.render(
   <StyledEngineProvider injectFirst>
     <Provider store={rootStore}>

@@ -1,5 +1,6 @@
 import styles from "./MainPage.module.css";
 import React, { useState } from "react";
+import dayjs from 'dayjs';
 import { Button, IconButton, Input, Tab, Tabs, TextField, Typography } from "@mui/material";
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
@@ -12,9 +13,13 @@ import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import MUIDataTable, { TableHead } from "mui-datatables";
 import AddIcon from "@mui/icons-material/Add";
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { Button_IU5 } from "../../components/customized/Button_IU5";
+import { LocalizationProvider } from "@mui/x-date-pickers";
+import "dayjs/locale/ru";
 
 
 interface TabPanelProps {
@@ -113,17 +118,6 @@ export const MainPage = () => {
                         options: {
                             customBodyRenderLite: (rowIndex: any) => {
                                 return (
-                                // <TextField
-                                //     variant="standard"
-                                //     sx = {{mt: '0.4em'}}
-                                //     value={data[rowIndex][1]}
-                                //     InputProps={{
-                                //         disableUnderline: true,
-                                //     }}
-                                //     onChange={(event: any) => {
-                                //         setData([...data.slice(0, rowIndex), [...data[rowIndex].slice(0, 1), event.target.value, ...data[rowIndex].slice(2)], ...data.slice(rowIndex+1)]);
-                                //     }}/>
-                                
                                 <Select
                                     sx={{width: '8em'}}
                                     value={data[rowIndex][1]}
@@ -131,10 +125,10 @@ export const MainPage = () => {
                                         setData([...data.slice(0, rowIndex), [...data[rowIndex].slice(0, 1), event.target.value, ...data[rowIndex].slice(2)], ...data.slice(rowIndex+1)]);
                                     }}
                                 >
-                                    <MenuItem value={10}>ИУ5</MenuItem>
-                                    <MenuItem value={20}>ИУ6</MenuItem>
-                                    <MenuItem value={30}>ИУ7</MenuItem>
-                                    <MenuItem value={30}>ИУ8</MenuItem>
+                                    <MenuItem value={'ИУ5'}>ИУ5</MenuItem>
+                                    <MenuItem value={'ИУ6'}>ИУ6</MenuItem>
+                                    <MenuItem value={'ИУ7'}>ИУ7</MenuItem>
+                                    <MenuItem value={'ИУ8'}>ИУ8</MenuItem>
                                 </Select>
                                 );
                             }
@@ -144,16 +138,16 @@ export const MainPage = () => {
                         options: {
                             customBodyRenderLite: (rowIndex: any) => {
                                 return (
-                                <TextField
-                                    variant="standard"
-                                    sx = {{mt: '0.4em'}}
-                                    value={data[rowIndex][2]}
-                                    InputProps={{
-                                        disableUnderline: true,
-                                    }}
-                                    onChange={(event: any) => {
-                                        setData([...data.slice(0, rowIndex), [...data[rowIndex].slice(0, 2), event.target.value, ...data[rowIndex].slice(3)], ...data.slice(rowIndex+1)]);
-                                    }}/>
+                                <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale='ru' >
+                                    <DatePicker 
+                                        value={data[rowIndex][2] }
+                                        format="DD.MM.YYYY"
+
+                                        onChange={(event: any) => {
+                                            console.log(event)
+                                            setData([...data.slice(0, rowIndex), [...data[rowIndex].slice(0, 2), event, ...data[rowIndex].slice(3)], ...data.slice(rowIndex+1)]);
+                                        }}/>
+                                </LocalizationProvider>
                                 );
                             }
                         }
@@ -170,7 +164,10 @@ export const MainPage = () => {
                                         disableUnderline: true,
                                     }}
                                     onChange={(event: any) => {
-                                        setData([...data.slice(0, rowIndex), [...data[rowIndex].slice(0, 3), event.target.value, ...data[rowIndex].slice(4)], ...data.slice(rowIndex+1)]);
+                                        const regex = /^\d*\.?\d*$/;
+                                        if (event.target.value === "" || regex.test(event.target.value)) {
+                                            setData([...data.slice(0, rowIndex), [...data[rowIndex].slice(0, 3), event.target.value, ...data[rowIndex].slice(4)], ...data.slice(rowIndex+1)]);
+                                        }
                                     }}/>
                                 );
                             }
@@ -179,10 +176,10 @@ export const MainPage = () => {
                     ];
 
     const [data, setData] = useState([
-        ["Эксплуатация АСОИУ", "ИУ5", "10.05.2023", "4.5"],
-        ["Эксплуатация АСОИУ", "ИУ5", "10.05.2023", "4.5"],
-        ["Эксплуатация АСОИУ", "ИУ5", "10.05.2023", "4.5"],
-        ["Эксплуатация АСОИУ", "ИУ5", "10.05.2023", "4.5"],
+        ["Эксплуатация АСОИУ", "ИУ5", dayjs("10/05/2023"), "4.5"],
+        ["Эксплуатация АСОИУ", "ИУ5", dayjs("10/05/2023"), "4.5"],
+        ["Эксплуатация АСОИУ", "ИУ5", dayjs("10/05/2023"), "4.5"],
+        ["Эксплуатация АСОИУ", "ИУ5", dayjs("10/05/2023"), "4.5"],
     ]);
 
     const options = {

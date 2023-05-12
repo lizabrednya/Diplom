@@ -1,9 +1,10 @@
 .pic {
-    width: 70%;
-    height: 60vh;
-    margin-bottom: 2vh;
-    background-color: #00949A;
-    display:inline-block;
+    /* width: 70%; */
+    /* height: 100vh; */
+    /* margin-bottom: 2vh; */
+    /* background-color: #00949A; */
+    text-align: center;
+    /* display:inline-block; */
 }
 .floater {
     /* width: 100%; */
@@ -23,7 +24,7 @@
 }
 .right_box {
     background-color: #22BEC5;
-    width: 11.5em;
+    width: 11.7em;
     height: 100%;
     font-size: 1em;
     font-weight: 400;
