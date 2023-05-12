@@ -55,6 +55,7 @@ export const ColorsPage = () => {
                     spacing={2}
                     direction="row"
                     alignItems="flex-start">
+                    {/* <Typography variant="h5">Основные цвета</Typography> */}
                     {main_colors.map((c) => (
                         <Card className={styles.card} key={c}>
                             <CardMedia

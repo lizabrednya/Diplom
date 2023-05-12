@@ -188,6 +188,7 @@ export const MainPage = () => {
         download: false,
         viewColumns: false,
         pagination: false,
+        elevation: 0,
         textLabels: {
             body: {
                 noMatch: "Записи не найдены :(",
@@ -347,29 +348,14 @@ export const MainPage = () => {
                 className={styles.chips}/> */}
         </TabPanel>
         <TabPanel value={value} index={2}>
-            <Typography variant="h5">Предметы</Typography>
-            <div style={{ height: 400, width: '100%', marginTop: '20px' }}>
+            <div style={{ height: 400, width: '100%', marginTop: '20px', marginLeft: '-30px' }}>
                 <MUIDataTable
-                    title={"Список предметов"}
+                    title={<Typography variant="h5" sx={{ml: '-24px'}}>Предметы курса</Typography>}
                     data={data}
                     columns={columns}
                     options={options}
                 />
             </div>
-            {/* <Box className={styles.inputs}>
-            <TextField
-                label="Новый предмет"
-                value={newVal}
-                onChange={(event) => {setNewVal(event.target.value)}}
-            />
-            <Button_IU5 variant="contained" className={styles.addButton}
-                onClick={()=> {
-                    setData([...data, [newVal, 'абаб']]);
-                    setNewVal("")
-                }}
-                >Добавить
-            </Button_IU5>
-            </Box> */}
         </TabPanel>
     </div>
     )

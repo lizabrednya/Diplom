@@ -8,20 +8,27 @@
 }
 .flex {
     display: flex;
+    padding-bottom: 0;
 }
 .card {
-    width: 13em;
-    margin: 2em 2em 2em 0;
+    margin: 1em 1em 1em 0;
     border-radius: 0;
     box-shadow: none;
     border: 1px solid black;
+    font-size: 1.25vw;
+    font-weight: 400;
+    padding-bottom: 0;
 }
 .cardColor {
-    height: 15em;
-    background-color: #D9D9D9;
+    height: 10.5em;
+    width: 10.5em;
+    background-color: #E7F3F5
 }
 .cardIcon {
     margin-left: auto;
     margin-top: -1em;
     color: black;
+}
+.cardText {
+    font-size: 1.25vw;
 }
