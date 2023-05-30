@@ -4,6 +4,6 @@ import { ComponentTemplate } from "../../components/ComponentTemplate/ComponentT
 export const SelectPage = () => {
 
     return (
-        <ComponentTemplate name={'Select'}/>
+        <ComponentTemplate name={'Поле выбора'}/>
     )
 }

@@ -13,7 +13,7 @@ export const IconsPage = () => {
         <Typography className={styles.text}>
             Тут иконки
         </Typography>
-        <Button_IU5 variant="contained" sx={{mt: '5em'}}>Скачать</Button_IU5>
+        {/* <Button_IU5 variant="contained" sx={{mt: '5em'}}>Скачать</Button_IU5> */}
     </Box>
     )
   };

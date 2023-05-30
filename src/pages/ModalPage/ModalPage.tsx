@@ -4,6 +4,6 @@ import { ComponentTemplate } from "../../components/ComponentTemplate/ComponentT
 export const ModalPage = () => {
 
     return (
-        <ComponentTemplate name={'Modal'}/>
+        <ComponentTemplate name={'Модальное окно'}/>
     )
 }

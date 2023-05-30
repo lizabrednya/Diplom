@@ -34,7 +34,7 @@ export const IntroPage = () => {
             Дизайн-система кафедры ИУ5
         </Typography>
         <Link to={'https://www.figma.com/file/ieCIVTZ4Vh10rEajxI2Gic/UI-kit--%D0%98%D0%A35?type=design&node-id=0%3A1&t=GkKhwtcCDKq65Cvq-1'} target="_blank">ссылка на фигму</Link> */}
-        <Box className={styles.pic}><PicIcon style={{width: '90vw', marginTop: "3vw"}}/></Box>
+        <Box className={styles.pic}><PicIcon style={{width: '90vw', marginTop: "-1vw"}}/></Box>
         <Box className={styles.floater}>
             <Box className={styles.left_box}>
                 <Typography className={styles.left_header}>

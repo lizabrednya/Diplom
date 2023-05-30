@@ -4,6 +4,6 @@ import { ComponentTemplate } from "../../components/ComponentTemplate/ComponentT
 export const TablePage = () => {
 
     return (
-        <ComponentTemplate name={'Table'}/>
+        <ComponentTemplate name={'Таблица'}/>
     )
 }

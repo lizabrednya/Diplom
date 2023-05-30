@@ -4,6 +4,6 @@ import { ComponentTemplate } from "../../components/ComponentTemplate/ComponentT
 export const RadiobuttonPage = () => {
 
     return (
-        <ComponentTemplate name={'Radiobutton'}/>
+        <ComponentTemplate name={'Радиобаттон'}/>
     )
 }

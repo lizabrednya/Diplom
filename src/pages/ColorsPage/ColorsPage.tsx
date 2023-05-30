@@ -50,9 +50,9 @@ export const ColorsPage = () => {
         </Typography>
         <div className={styles.flex}>
             <Grid container spacing={2}>
-                <Grid item xs={4}
+                <Grid item xs={5}
                     container
-                    spacing={2}
+                    // spacing={2}
                     direction="row"
                     alignItems="flex-start">
                     {/* <Typography variant="h5">Основные цвета</Typography> */}
@@ -83,9 +83,9 @@ export const ColorsPage = () => {
                         ))
                     }
                 </Grid>
-                <Grid item xs={4}
+                <Grid item xs={5}
                     container
-                    spacing={2}
+                    // spacing={2}
                     direction="row"
                     alignItems="flex-start">
                     {help_colors.map((c) => (

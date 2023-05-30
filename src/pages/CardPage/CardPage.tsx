@@ -4,6 +4,6 @@ import { ComponentTemplate } from "../../components/ComponentTemplate/ComponentT
 export const CardPage = () => {
 
     return (
-        <ComponentTemplate name={'Card'}/>
+        <ComponentTemplate name={'Карточка'}/>
     )
 }

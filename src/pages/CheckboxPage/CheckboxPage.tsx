@@ -4,6 +4,6 @@ import { ComponentTemplate } from "../../components/ComponentTemplate/ComponentT
 export const CheckboxPage = () => {
 
     return (
-        <ComponentTemplate name={'Checkbox'}/>
+        <ComponentTemplate name={'Чекбокс'}/>
     )
 }

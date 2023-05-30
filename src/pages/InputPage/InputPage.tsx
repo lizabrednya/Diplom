@@ -7,7 +7,7 @@ export const InputPage = () => {
 
     return (
         <div>
-            <ComponentTemplate name={'Input'}/>
+            <ComponentTemplate name={'Поле выбора'}/>
             <TextField_IU5></TextField_IU5>
         </div>
     )

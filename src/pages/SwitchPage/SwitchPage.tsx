@@ -4,6 +4,6 @@ import { ComponentTemplate } from "../../components/ComponentTemplate/ComponentT
 export const SwitchPage = () => {
 
     return (
-        <ComponentTemplate name={'Switch'}/>
+        <ComponentTemplate name={'Переключатель'}/>
     )
 }

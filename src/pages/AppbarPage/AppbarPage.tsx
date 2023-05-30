@@ -4,6 +4,6 @@ import { ComponentTemplate } from "../../components/ComponentTemplate/ComponentT
 export const AppbarPage = () => {
 
     return (
-        <ComponentTemplate name={'App bar'}/>
+        <ComponentTemplate name={'Меню'}/>
     )
 }

@@ -24,7 +24,7 @@ export const ButtonPage = () => {
 
     return (
         <div className={styles.app}>
-            <ComponentTemplate name={'Button'}/>
+            <ComponentTemplate name={'Кнопка'}/>
             <Snackbar
                 open={open}
                 autoHideDuration={2000}

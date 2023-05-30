@@ -176,10 +176,10 @@ export const MainPage = () => {
                     ];
 
     const [data, setData] = useState([
-        ["Эксплуатация АСОИУ", "ИУ5", dayjs("10/05/2023"), "4.5"],
-        ["Эксплуатация АСОИУ", "ИУ5", dayjs("10/05/2023"), "4.5"],
-        ["Эксплуатация АСОИУ", "ИУ5", dayjs("10/05/2023"), "4.5"],
-        ["Эксплуатация АСОИУ", "ИУ5", dayjs("10/05/2023"), "4.5"],
+        ["ЭУ АСОИУ", "ИУ5", dayjs("05/01/2023"), "4.2"],
+        ["Эксплуатация АСОИУ", "ИУ5", dayjs("05/03/2023"), "4.5"],
+        ["Теория управления", "ИУ7", dayjs("05/08/2023"), "4.8"],
+        ["Машинное обучение", "ИУ8", dayjs("04/28/2023"), "4.25"],
     ]);
 
     const options = {
@@ -311,9 +311,9 @@ export const MainPage = () => {
                     onChange={handleChangeUni}
                     variant="filled"
                 >
-                    <MenuItem value={10}>Бауманка</MenuItem>
-                    <MenuItem value={20}>Бауманка 2</MenuItem>
-                    <MenuItem value={30}>СурГУ</MenuItem>
+                    <MenuItem value={10}>МГТУ им. Н.Э.Баумана</MenuItem>
+                    <MenuItem value={20}>МГУ им. Ломоносова</MenuItem>
+                    <MenuItem value={30}>МГППУ</MenuItem>
                 </Select>
             </FormControl>
             </div>
@@ -331,6 +331,7 @@ export const MainPage = () => {
                     <MenuItem value={10}>ИУ5-84</MenuItem>
                     <MenuItem value={20}>ИУ5-81</MenuItem>
                     <MenuItem value={30}>ИУ5-82</MenuItem>
+                    <MenuItem value={30}>ИУ5-83</MenuItem>
                 </Select>
             </FormControl>
             </div>

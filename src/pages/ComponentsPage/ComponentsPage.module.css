@@ -1,16 +1,18 @@
 .text {
-    width: 34vw;
+    width: 45vw;
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
     line-height: 23px;
     margin-top: 2em;
+    margin-bottom: 1.5em;
 }
 .flex {
     display: flex;
     padding-bottom: 0;
 }
 .card {
+    width: 10.5em;
     margin: 1em 1em 1em 0;
     border-radius: 0;
     box-shadow: none;

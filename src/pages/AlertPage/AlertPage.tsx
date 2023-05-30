@@ -4,6 +4,6 @@ import { ComponentTemplate } from "../../components/ComponentTemplate/ComponentT
 export const AlertPage = () => {
 
     return (
-        <ComponentTemplate name={'Alert'}/>
+        <ComponentTemplate name={'Алерт'}/>
     )
 }

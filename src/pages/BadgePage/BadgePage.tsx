@@ -4,6 +4,6 @@ import { ComponentTemplate } from "../../components/ComponentTemplate/ComponentT
 export const BadgePage = () => {
 
     return (
-        <ComponentTemplate name={'Badge / Tag / Chips'}/>
+        <ComponentTemplate name={'Бейдж'}/>
     )
 }

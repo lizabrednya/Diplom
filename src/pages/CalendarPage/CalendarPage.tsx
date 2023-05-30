@@ -4,6 +4,6 @@ import { ComponentTemplate } from "../../components/ComponentTemplate/ComponentT
 export const CalendarPage = () => {
 
     return (
-        <ComponentTemplate name={'Calendar'}/>
+        <ComponentTemplate name={'Календарь'}/>
     )
 }
