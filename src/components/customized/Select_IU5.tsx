@@ -11,9 +11,14 @@ const Select_IU5_input = styled(Select, {
     // height: '3.125em',
     // color: theme.palette.mode == 'light' ? 'black' : 'white',
     borderRadius: 0,
+    backgroundColor: theme.palette.mode == 'light' ? '#F2F2F2' : '#262626',
     // margin: '1em',
-    '& label.Mui-focused': {
-        color: theme.palette.mode == 'light' ? '#0D8489' : '#0B6F73',
+    // '& label.Mui-focused': {
+    //     color: theme.palette.mode == 'light' ? '#0D8489' : '#0B6F73',
+    // },
+    '& 	.MuiSelect-filled:hover:after': {
+        backgroundColor: 'red',
+        color: 'green'
     },
     // '& label.Mui-error':{
     //     borderBottomColor: '#EC6442',
@@ -36,19 +41,8 @@ const Select_IU5_input = styled(Select, {
         borderBottomWidth: '0.125em',
         borderBottomColor: theme.palette.mode == 'light' ? '#B0B0B0' : '#727272'
     },
-    "&.MuiSelect-filled": {
-        "& fieldset": {
-          borderColor: "red"
-        },
-        "&:hover fieldset": {
-          borderColor: "yellow"
-        },
-        "&.Mui-focused fieldset": {
-          borderColor: "green"
-        }
-      },
-    "& .MuiFilledInput-input": {
-        color: "green"
+    "& .MuiFilledInput-input:hover": {
+        backgroundColor: theme.palette.mode == 'light' ? '#E2E2E2' : '#393939',
     },
     // '& .MuiFilledInput-underline.Mui-error:after': {
     //     borderBottomColor: '#EC6442',
@@ -89,20 +83,29 @@ const InputLabel_IU5 = styled(InputLabel, {
     // fontSize: '16px',
     // fontWeight: 400,
     // height: '3.125em',
-    // color: theme.palette.mode == 'light' ? 'black' : 'white',
+    color: theme.palette.mode == 'light' ? '#616161' : '#636363',
     borderRadius: 0,
-    '& .Mui-focused': {
-        color: theme.palette.mode == 'light' ? '#0D8489' : '#0B6F73',
-    },
+    // '& .MuiFormLabel-root.MuiInputLabel-root.Mui-focused': {
+    //     // color: theme.palette.mode == 'light' ? '#0D8489' : '#0B6F73',
+    //     color: 'red',
+    // },
+    // '& 	.MuiInputLabel-root.MuiInputLabel-filled.Mui-focused': {
+    //     // color: theme.palette.mode == 'light' ? '#0D8489' : '#0B6F73',
+    //     color: 'red !important',
+    //     backgroundColor: 'lightgreen'
+    // }
+    '&:focus': {
+        color: 'red'
+    }
 
 }));
 
 interface IProps extends SelectProps {
     choose_from: Array<MenuItem_IU5>
-}
+}   
 interface MenuItem_IU5 {
     name: string,
-    value: number
+    value: any
 }
 export const Select_IU5 = (props: IProps) => {
     return (

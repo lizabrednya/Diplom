@@ -50,7 +50,7 @@ export const ComponentsPage = () => {
                     </Typography>
                     <Button className={styles.cardIcon}
                         onClick={() => navigate(`/components/${c.name.toLowerCase()}`)}>
-                        <ArrowForwardOutlinedIcon fontSize="large"/>
+                        <ArrowForwardOutlinedIcon fontSize="large" sx={{color: (theme) => theme.palette.mode == 'light' ? 'black' : 'white'}}/>
                     </Button>
                 </CardContent>
             </Card>

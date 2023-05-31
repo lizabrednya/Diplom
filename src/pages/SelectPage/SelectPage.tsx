@@ -3,7 +3,7 @@ import { Select_IU5 } from "../../components/customized/Select_IU5";
 
 export const SelectPage = () => {
 
-    const choose_from = [{name: 'Ничего', value: 1}, {name: 'МГТУ им. Баумана', value: 2}, {name: 'МГУ им. Ломоносова', value: 3}]
+    const choose_from = [{name: 'Ничего', value: ""}, {name: 'МГТУ им. Баумана', value: 2}, {name: 'МГУ им. Ломоносова', value: 3}]
 
     return (
         <div>

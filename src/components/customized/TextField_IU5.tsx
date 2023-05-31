@@ -44,6 +44,10 @@ const TextField_IU5_input = styled(TextField, {
         borderBottomWidth: '0.125em',
         borderBottomColor: theme.palette.mode == 'light' ? '#B0B0B0' : '#727272'
     },
+    '& .MuiFilledInput-underline:hover:after': {
+        borderBottomWidth: '0.125em',
+        borderBottomColor: theme.palette.mode == 'light' ? '#B0B0B0' : '#727272'
+    },
     '& .MuiFilledInput-underline.Mui-error:before': {
         borderBottomWidth: '0.125em',
         borderBottomColor: '#EC6442',
@@ -53,8 +57,8 @@ const TextField_IU5_input = styled(TextField, {
     },
     '& .MuiFilledInput-root:hover':{
         backgroundColor: theme.palette.mode == 'light' ? '#E2E2E2' : '#393939',
-        borderBottomColor: theme.palette.mode == 'light' ? '#B0B0B0' : '#727272'
-
+        borderBottomColor: theme.palette.mode == 'light' ? '#B0B0B0' : '#727272',
+        borderBottomWidth: '0.125em',
     },
     '& .MuiFilledInput-root.Mui-focused:hover':{
         backgroundColor: theme.palette.mode == 'light' ? '#F2F2F2' : '#262626',
