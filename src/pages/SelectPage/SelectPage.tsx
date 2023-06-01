@@ -1,5 +1,5 @@
 import { ComponentTemplate } from "../../components/ComponentTemplate/ComponentTemplate";
-import { Select_IU5 } from "../../components/customized/Select_IU5";
+import { Select_IU5 } from "../../components/customized";
 
 export const SelectPage = () => {
 

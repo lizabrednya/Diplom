@@ -6,7 +6,7 @@ import SyntaxHighlighter from 'react-syntax-highlighter';
 import { darcula } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 // import jsx from 'react-syntax-highlighter/dist/esm/languages/hljs/';
 
-import { Button_IU5 } from "../../components/customized/Button_IU5";
+import { Button_IU5 } from "../../components/customized";
 
 // SyntaxHighlighter.registerLanguage('jsx', jsx);
 

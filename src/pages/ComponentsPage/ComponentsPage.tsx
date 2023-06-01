@@ -4,7 +4,7 @@ import { Alert, Button, Card, CardActions, CardContent, CardMedia, Grid, TextFie
 import Box from '@mui/material/Box';
 import ArrowForwardOutlinedIcon from '@mui/icons-material/ArrowForwardOutlined';
 import { useNavigate } from "react-router-dom";
-import { Button_IU5 } from "../../components/customized/Button_IU5";
+import { Button_IU5 } from "../../components/customized";
 
 
 export const ComponentsPage = () => {

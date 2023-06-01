@@ -7,7 +7,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import { handleLoggin, handleTheme } from "../../store/reducers";
-import { Button_IU5 } from "../../components/customized/Button_IU5";
+import { Button_IU5 } from "../../components/customized";
 import { ReactComponent as LogoIcon } from '../../assets/Logo.svg';
 import MenuIcon from '@mui/icons-material/Menu';
 

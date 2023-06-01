@@ -1,5 +1,5 @@
 // import styles from "./ButtonPage.module.css"
-import { Switch_IU5 } from "../../components/customized/Switch_IU5";
+import { Switch_IU5 } from "../../components/customized";
 import { ComponentTemplate } from "../../components/ComponentTemplate/ComponentTemplate";
 
 export const SwitchPage = () => {

@@ -1,5 +1,5 @@
 // import styles from "./ButtonPage.module.css"
-import { Tabs_IU5 } from "../../components/customized/Tabs_IU5";
+import { Tabs_IU5 } from "../../components/customized";
 import { ComponentTemplate } from "../../components/ComponentTemplate/ComponentTemplate";
 
 export const TabsPage = () => {

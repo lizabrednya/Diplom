@@ -1,4 +1,4 @@
-import { styled } from '@mui/material/styles';
+import { ThemeProvider, createTheme, styled, useTheme } from '@mui/material/styles';
 import { Select, SelectProps, MenuItem, FormControl, InputLabel, InputLabelProps } from "@mui/material";
 
 
@@ -108,22 +108,35 @@ interface MenuItem_IU5 {
     value: any
 }
 export const Select_IU5 = (props: IProps) => {
-    return (
-        <FormControl fullWidth variant="filled" sx={props.sx}>
-            <InputLabel_IU5 
-                id="simple-select-label"
-            >{props.label}</InputLabel_IU5>
-            <Select_IU5_input
-                labelId="simple-select-label"
-                // helperText= {props.error == true ? "Комментарий для помощи" : null}
-                {...props}
-                sx = {{}}
-            >
-                {props.choose_from.map((e: MenuItem_IU5) => {
-                    return (<MenuItem key={e.value} value={e.value}>{e.name}</MenuItem>)
-                })}
 
-            </Select_IU5_input>
-        </FormControl>
+    const theme = useTheme();
+
+    const innerTheme = createTheme({
+        palette: {
+            primary: {
+                main: theme.palette.mode == 'light' ? '#22BEC5' : '#4CCFD4',
+            },
+        },
+    });
+
+    return (
+        <ThemeProvider theme={innerTheme}>
+            <FormControl fullWidth variant="filled" sx={props.sx}>
+                <InputLabel_IU5 
+                    id="simple-select-label"
+                >{props.label}</InputLabel_IU5>
+                <Select_IU5_input
+                    labelId="simple-select-label"
+                    // helperText= {props.error == true ? "Комментарий для помощи" : null}
+                    {...props}
+                    sx = {{}}
+                >
+                    {props.choose_from.map((e: MenuItem_IU5) => {
+                        return (<MenuItem key={e.value} value={e.value}>{e.name}</MenuItem>)
+                    })}
+
+                </Select_IU5_input>
+            </FormControl>
+        </ThemeProvider>
     )
 }

@@ -1,5 +1,5 @@
 // import styles from "./ButtonPage.module.css"
-import { Checkbox_IU5 } from "../../components/customized/Checkbox_IU5";
+import { Checkbox_IU5 } from "../../components/customized";
 import { ComponentTemplate } from "../../components/ComponentTemplate/ComponentTemplate";
 
 export const CheckboxPage = () => {
