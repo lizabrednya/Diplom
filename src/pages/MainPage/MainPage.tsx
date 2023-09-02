@@ -16,10 +16,10 @@ import AddIcon from "@mui/icons-material/Add";
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 
-import { useSelector, useDispatch } from 'react-redux';
 import { Button_IU5 } from "../../components/customized/Button_IU5";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import "dayjs/locale/ru";
+import { TextField_IU5 } from "../../components/customized";
 
 
 interface TabPanelProps {
@@ -250,24 +250,20 @@ export const MainPage = () => {
         </Box>
         <TabPanel value={value} index={0}>
             <div>
-                <TextField
-                    className={styles.inputs}
+                <TextField_IU5 
                     label="Фамилия"
-                    variant="filled"
+                    className={styles.inputs}
                     value={surname}
-                    onChange={(e: any) => setSurname(e.target.value)}
-                />
-                <TextField
+                    onChange={(e: any) => setSurname(e.target.value)}/>
+                <TextField_IU5
                     className={styles.inputs}
                     label="Имя"
-                    variant="filled"
                     value={name}
                     onChange={(e: any) => setName(e.target.value)}
                 />
-                <TextField
+                <TextField_IU5
                     className={styles.inputs}
                     label="Отчество"
-                    variant="filled"
                     value={otch}
                     onChange={(e: any) => setOtch(e.target.value)}
                 />
@@ -286,29 +282,26 @@ export const MainPage = () => {
                 </RadioGroup>
             </FormControl>
             <div>
-                <TextField
+                <TextField_IU5
                     className={styles.inputs}
                     label="Дата рождения"
                     placeholder="дд.мм.гггг"
-                    variant="filled"
                     value={bday}
                     onChange={(e: any) => setBday(e.target.value)}
                 />
             </div>
             <div>
-                <TextField
+                <TextField_IU5
                     className={styles.inputs}
                     label="Телефон"
                     placeholder="+7 123 456-78-90"
-                    variant="filled"
                     value={phone}
                     onChange={(e: any) => setPhone(e.target.value)}
                 />
-                <TextField
+                <TextField_IU5
                     className={styles.inputs}
                     label="Почта"
                     placeholder="example@mail.ru"
-                    variant="filled"
                     value={mail}
                     onChange={(e: any) => setMail(e.target.value)}
                 />
